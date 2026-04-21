@@ -7,7 +7,8 @@ function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-bg/80 backdrop-blur-sm">
             <div className="max-w-6xl mx-auto w-full px-6 h-full flex items-center justify-between">
-                <a href="/" className="font-mono text-lg font-bold text-text">
+                <a href="/" className="font-mono text-lg font-bold text-text flex items-center gap-2">
+                    <span className="mt-1 inline-block w-2 h-2 rounded-xs bg-gradient-to-br from-accent-from to-accent-to"></span>
                     maazin <span className="text-text/40">/ dev</span>
                 </a>
                 <div className="flex items-center gap-6">
