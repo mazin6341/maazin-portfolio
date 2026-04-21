@@ -55,22 +55,29 @@ maazin-portfolio/
 └── docker-compose.yml
 ```
 
-## Running Locally
+## Running
+
+Copy `.env.example` to `.env` and set `APP_ENV` to `development` or `production`, then run:
+
+**Linux / macOS / WSL2:**
+```bash
+./run.sh
+```
+
+**Windows (PowerShell):**
+```powershell
+./run.ps1
+```
+
+| Mode | Command triggered | URL |
+|---|---|---|
+| `development` | `docker-compose.dev.yml` | [localhost:5173](http://localhost:5173) — live reload |
+| `production` | `docker-compose.yml` | [localhost:3000](http://localhost:3000) — nginx static build |
+
+## Running Without Docker
 
 ```bash
 cd src
 npm install
 npm run dev
 ```
-
-Open [http://localhost:5173](http://localhost:5173).
-
-## Deployment
-
-Self-hosted via docker-compose. Builds a static bundle with Vite, served by nginx.
-
-```bash
-docker-compose up --build
-```
-
-Runs on port `3000` → `maazin.velotical.com`.
