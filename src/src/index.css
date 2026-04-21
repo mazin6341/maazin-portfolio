@@ -11,15 +11,26 @@
   --font-sans: "Inter", "Geist", system-ui, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-html {
-  font-family: var(--font-sans);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  -webkit-font-smoothing: antialiased;
+  html {
+    --color-bg: #f8f8ff;
+    --color-text: #1a1a2e;
+    --grid-line-color: rgba(0, 0, 0, 0.06);
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html.dark {
+    --color-bg: #0d0d1a;
+    --color-text: #e8e8e8;
+    --grid-line-color: rgba(255, 255, 255, 0.04);
+  }
 }

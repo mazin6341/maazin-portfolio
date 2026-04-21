@@ -1,14 +1,18 @@
 import './App.css'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <>
-      <section id="comingSoon">
-        <div className="flex items-center justify-center min-h-screen">
-          <h1 className="font-mono">Maazin / dev &nbsp;|&nbsp; Coming Soon</h1>
+    <Routes>
+      <Route path="/" element={
+        <div className="min-h-screen">
+          <Navbar />
+          <Hero />
         </div>
-      </section>
-    </>
+      } />
+    </Routes>
   )
 }
 
