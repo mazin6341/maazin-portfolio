@@ -24,10 +24,13 @@ Built with a focus on craft and cohesion. Designed to grow over time rather than
 
 <div align="center">
 
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-EF008F?style=for-the-badge&logo=framer&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![nginx](https://img.shields.io/badge/nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
 
 </div>
 
@@ -35,12 +38,19 @@ Built with a focus on craft and cohesion. Designed to grow over time rather than
 
 ```
 maazin-portfolio/
-├── src/                  # Next.js application (App Router)
-│   ├── app/              # Pages and layouts
-│   ├── public/           # Static assets
-│   └── ...               # Config files
+├── src/                    # Vite application
+│   ├── src/
+│   │   ├── components/     # UI components
+│   │   ├── data/           # Static project & skills data
+│   │   ├── assets/         # Images and static files
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── index.css       # Tailwind v4 entry + design tokens
+│   ├── index.html
+│   ├── vite.config.ts
+│   └── package.json
 ├── .docker/
-│   ├── Dockerfile        # Multi-stage production build
+│   ├── Dockerfile          # Multi-stage build → nginx
 │   └── .dockerignore
 └── docker-compose.yml
 ```
@@ -53,14 +63,14 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:5173](http://localhost:5173).
 
 ## Deployment
 
-Self-hosted via docker-compose. From the project root:
+Self-hosted via docker-compose. Builds a static bundle with Vite, served by nginx.
 
 ```bash
 docker-compose up --build
 ```
 
-Runs on port `3000` behind a reverse proxy at `maazin.velotical.com`.
+Runs on port `3000` → `maazin.velotical.com`.
