@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/src/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -15,6 +16,7 @@
 
 # next.js
 /.next/
+/src/.next/
 /out/
 
 # production
@@ -33,9 +35,12 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+src/next-env.d.ts
+
+# AI / Claude Code config (managed in ~/.claude/project-configs/)
+CLAUDE.md
+AGENTS.md
+SPEC.md
