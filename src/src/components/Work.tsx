@@ -1,4 +1,6 @@
 import { projects } from '../data/projects'
+import { techMeta } from '../data/techMeta'
+import { FiChevronRight } from 'react-icons/fi'
 
 function Work() {
     return (
@@ -20,7 +22,7 @@ function Work() {
             {/* Projects */}
             <div className="mt-16 flex flex-col divide-y divide-text/20 border-t border-b border-text/20">
                 {projects.map((project) => (
-                    <div key={project.id} className="group">
+                    <div key={project.id} className="group hover:cursor-pointer">
                         <div className="project-row flex justify-between py-10 pl-4">
                             {/* Left Side */}
                             <div className="flex-1 flex flex-col gap-3">
@@ -28,6 +30,7 @@ function Work() {
                                     <span className="text-text/30 font-mono text-sm">0{project.id}</span>
                                     <span className="font-mono font-bold text-xl text-text group-hover-gradient-text">{project.title}</span>
                                     {project.nda && <span className="text-xs font-mono px-2 py-0.5 rounded ring-1 ring-accent-to bg-accent-to/10 text-accent-to w-fit">NDA</span>}
+                                    <FiChevronRight className="text-accent-to translate-x-[-4px] group-hover:translate-x-0  opacity-0 group-hover:opacity-100" />
                                 </div>
                                 <div className="flex items-center gap-2 text-text/40 font-mono text-xs">
                                     {[project.client, project.region, project.role, String(project.year)]
@@ -41,14 +44,32 @@ function Work() {
                                 </div>
                                 <p className="text-text/60 text-sm leading-relaxed max-w-xl">{project.description}</p>
                                 <div className="flex flex-wrap gap-2">
-                                    {project.stack.map((tech, i) => (
-                                        <span key={i} className="text-xs font-mono px-2 py-1 rounded bg-text/10 text-text/50">{tech}</span>
-                                    ))}
+                                    {project.stack.map((tech, i) => {
+                                        const meta = techMeta[tech]
+                                        return meta ? (
+                                            <span
+                                                key={i}
+                                                className="text-xs font-mono px-2 py-1 rounded flex items-center gap-1.5"
+                                                style={{
+                                                    backgroundColor: `${meta.color}28`,
+                                                    color: `${meta.color}ff`,
+                                                    boxShadow: `0 0 0 1px ${meta.color}55`,
+                                                }}
+                                            >
+                                                <meta.icon size={11} style={{ color: meta.color, flexShrink: 0 }} />
+                                                {tech}
+                                            </span>
+                                        ) : (
+                                            <span key={i} className="text-xs font-mono px-2 py-1 rounded bg-text/10 text-text/50">
+                                                {tech}
+                                            </span>
+                                        )
+                                    })}
                                 </div>
                             </div>
 
                             {/* Right Side */}
-                            <div className="flex flex-col gap-1 text-sm font-mono min-w-48">
+                            <div className="flex flex-col gap-1 text-sm font-mono w-64">
                                 <div className="flex justify-between gap-8">
                                     <span className="text-text/30">year</span>
                                     <span className="text-text/70">{project.year}</span>
@@ -59,12 +80,16 @@ function Work() {
                                 </div>
                                 <div className="flex justify-between gap-8">
                                     <span className="text-text/30">status</span>
-                                    <span className="text-text/70">{project.status}</span>
+                                    <span className="gradient-text">{project.status}</span>
                                 </div>
 
                                 <div className="mt-3">
-                                    <a href="#" className="text-xs font-mono px-3 py-1.5 rounded ring-1 ring-text/20 text-text/50 hover:ring-text/40 hover:text-text/70 transition-all flex items-center gap-1 w-fit">
-                                        read case study <span>›</span>
+                                    <a href="#" className="text-xs font-mono px-3 py-1.5 rounded ring-1 ring-text/20 text-text/50 group-hover:ring-text/40 group-hover:text-text/70 transition-all flex items-center gap-1 w-fit">
+                                        {project.opensource
+                                            ? "see how it's built"
+                                            : project.nda
+                                            ? "see what I can share"
+                                            : "read the writeup"} <span>›</span>
                                     </a>
                                 </div>
                             </div>
