@@ -13,7 +13,7 @@ function Contact() {
 
             <div className="relative max-w-6xl mx-auto px-6 text-center">
                 <p className="text-xs text-text/60 font-mono">// LET'S TALK</p>
-                <div className="text-6xl font-bold font-mono mt-4 flex flex-col gap-2">
+                <div className="text-4xl md:text-6xl font-bold font-mono mt-4 flex flex-col gap-2">
                     <h2>Got a <span className="gradient-text">weird idea</span>?</h2>
                     <h2>I probably want to hear it.</h2>
                 </div>
@@ -23,7 +23,7 @@ function Contact() {
                 </p>
 
                 {/* Call To Actions */}
-                <div className="flex justify-center gap-4 mt-8">
+                <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8 items-center">
                     <a href="mailto:mazin6341@gmail.com"
                         className="bg-gradient-to-br from-accent-from to-accent-to text-white px-4 py-3 rounded-lg font-mono text-sm shadow-lg shadow-accent-from/40 hover:shadow-accent-to/50 hover:opacity-90 hover:-translate-y-0.5 transition-all flex items-center gap-2">
                             mazin6341@gmail.com

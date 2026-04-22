@@ -6,7 +6,7 @@ function Work() {
     return (
         <section id="works" className="py-24 max-w-6xl mx-auto px-6">
             {/* Header */}
-            <div className="flex">
+            <div className="flex flex-col md:flex-row gap-4">
                 {/* Left Side */}
                 <div className="flex-1">
                     <p className="text-text/60 font-mono text-sm flex items-center gap-2"><span className="gradient-text">————</span> // SELECTED WORK</p>
@@ -14,8 +14,8 @@ function Work() {
                 </div>
 
                 {/* Right Side */}
-                <div className="max-w-xs flex items-end">
-                    <p className="text-text/60 text-xs leading-relaxed text-right font-mono">Some of this is under NDA, so here's the shape of it — problem, approach, outcome. Prose over screenshots.</p>
+                <div className="max-w-xs flex md:items-end">
+                    <p className="text-text/60 text-xs leading-relaxed md:text-right font-mono">Some of this is under NDA, so here's the shape of it — problem, approach, outcome. Prose over screenshots.</p>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@ function Work() {
             <div className="mt-16 flex flex-col divide-y divide-text/20 border-t border-b border-text/20">
                 {projects.map((project) => (
                     <div key={project.id} className="group hover:cursor-pointer" onClick={() => project.repo && window.open(project.repo, '_blank')}>
-                        <div className="project-row flex justify-between py-10 pl-4">
+                        <div className="project-row flex flex-col md:flex-row justify-between py-10 pl-4 gap-6 md:gap-0">
                             {/* Left Side */}
                             <div className="flex-1 flex flex-col gap-3">
                                 <div className="flex items-center gap-3">
@@ -69,7 +69,7 @@ function Work() {
                             </div>
 
                             {/* Right Side */}
-                            <div className="flex flex-col gap-1 text-sm font-mono w-64">
+                            <div className="flex flex-col gap-1 text-sm font-mono w-full md:w-64 shrink-0">
                                 <div className="flex justify-between gap-8">
                                     <span className="text-text/30">year</span>
                                     <span className="text-text/70">{project.year}</span>

@@ -10,7 +10,7 @@ function Hero () {
 
             {/* Content Layer */}
             <div className="relative z-10 flex items-center">
-                <div className="max-w-6xl mx-auto w-full px-6 flex gap-12">
+                <div className="max-w-6xl mx-auto w-full px-6 flex flex-col md:flex-row gap-12">
                 {/* Left Column - Main Details */}
                 <div className="flex-1 flex flex-col gap-4">
                     <span className="text-text/70 text-4xl font-bold font-mono">Hi <span className="text-text">👋</span>, I'm</span>
@@ -42,7 +42,9 @@ function Hero () {
                 </div>
 
                 {/* Right Column - Terminal */}
-                <TerminalCard />
+                <div className="hidden md:block">
+                    <TerminalCard />
+                </div>
                 </div>
             </div>
         </section>
