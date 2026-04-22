@@ -10,7 +10,7 @@ function Work() {
                 {/* Left Side */}
                 <div className="flex-1">
                     <p className="text-text/60 font-mono text-sm flex items-center gap-2"><span className="gradient-text">————</span> // SELECTED WORK</p>
-                    <h2 className="font-mono font-bold text-3xl md:text-4xl mt-2 whitespace-nowrap">Things I've built <span className="gradient-text">& shipped</span>.</h2>
+                    <h2 className="font-mono font-bold text-2xl md:text-4xl mt-2 md:whitespace-nowrap">Things I've built <span className="gradient-text">& shipped</span>.</h2>
                 </div>
 
                 {/* Right Side */}

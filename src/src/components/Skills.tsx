@@ -8,7 +8,7 @@ function Skills() {
                 {/* Left Side */}
                 <div className="flex-1">
                     <p className="text-text/60 font-mono text-sm flex items-center gap-2"><span className="gradient-text">————</span> // STACK</p>
-                    <h2 className="font-mono font-bold text-3xl md:text-4xl mt-2 whitespace-nowrap">What I <span className="gradient-text">reach for</span>.</h2>
+                    <h2 className="font-mono font-bold text-2xl md:text-4xl mt-2 md:whitespace-nowrap">What I <span className="gradient-text">reach for</span>.</h2>
                 </div>
 
                 {/* Right Side */}
@@ -43,7 +43,7 @@ function Skills() {
                                             <span className="text-text/30">{isLast ? '└──' : '├──'}</span>
                                             <span className="w-2 h-2 rounded-xs shrink-0 group-hover:scale-125 transition-transform" style={{ backgroundColor: skill.color }}></span>
                                             <span className="flex-1">{skill.name}</span>
-                                            <span className="text-text/40">{skill.description}</span>
+                                            <span className="hidden sm:inline text-text/40">{skill.description}</span>
                                         </div>
                                     )
                                 })}
