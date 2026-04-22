@@ -16,9 +16,9 @@ function Navbar() {
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-6">
-                    <a href="#works" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">work</a>
-                    <a href="#skills" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">skills</a>
-                    <a href="#contact" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">contact</a>
+                    <a href="/#works" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">work</a>
+                    <a href="/#skills" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">skills</a>
+                    <a href="/#contact" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">contact</a>
                     <a href="https://github.com/mazin6341" target="_blank" rel="noreferrer"
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm flex items-center gap-1">
                         github <FiArrowUpRight size={14} />
@@ -45,11 +45,11 @@ function Navbar() {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className="md:hidden bg-bg/95 backdrop-blur-sm border-t border-text/10 px-6 py-4 flex flex-col gap-4">
-                    <a href="#works" onClick={() => setMenuOpen(false)}
+                    <a href="/#works" onClick={() => setMenuOpen(false)}
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">work</a>
-                    <a href="#skills" onClick={() => setMenuOpen(false)}
+                    <a href="/#skills" onClick={() => setMenuOpen(false)}
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">skills</a>
-                    <a href="#contact" onClick={() => setMenuOpen(false)}
+                    <a href="/#contact" onClick={() => setMenuOpen(false)}
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">contact</a>
                     <a href="https://github.com/mazin6341" target="_blank" rel="noreferrer"
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm flex items-center gap-1">

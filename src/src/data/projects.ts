@@ -4,13 +4,19 @@ export type Project = {
     nda: boolean,
     opensource: boolean,
     client: string,
-    region: string,
+    region?: string,
     role: string,
     year: number,
     description: string,
     stack: string[],
     status: string,
-    repo: string,
+    repo?: string,
+    liveUrl?: string,
+    caseStudy?: {
+        problem: string,
+        approach: string,
+        outcome: string
+    }
 }
 
 export const projects: Project[] = [
@@ -20,13 +26,16 @@ export const projects: Project[] = [
         nda: true,
         opensource: false,
         client: "Villa College",
-        region: "",
         role: "Full-stack Developer",
         year: 2023,
         description: "End-to-end student lifecycle management, from application and enrolment through to graduation. Covers program and module registration, fee payments, a student portal, and a staff-facing backend with department-level, role-based permissions for managing records, processing payments, and generating reports.",
         stack: ["Laravel", "Livewire", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
         status: "shipped",
-        repo: "",
+        caseStudy: {
+            problem: "Test",
+            approach: "Test",
+            outcome: "Test"
+        }
     },
     {
         id: 2,
@@ -34,13 +43,16 @@ export const projects: Project[] = [
         nda: true,
         opensource: false,
         client: "Villa College",
-        region: "",
         role: "Full-stack Developer",
         year: 2023,
         description: "Centralised HR platform covering staff profiles, payroll processing, attendance tracking, and leave management. Integrates with an SSO provider and ZKTeco hardware via API for seamless identity and time data.",
         stack: ["Laravel", "Livewire", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
         status: "development",
-        repo: "",
+        caseStudy: {
+            problem: "Test",
+            approach: "Test",
+            outcome: "Test"
+        }
     },
     {
         id: 3,
@@ -48,21 +60,23 @@ export const projects: Project[] = [
         nda: true,
         opensource: false,
         client: "Villa College",
-        region: "",
         role: "Full-stack Developer",
         year: 2025,
         description: "Secure online voting platform for student election events, open to alumni and other eligible users. Voting anonymity is enforced at the database level — not just the application layer.",
         stack: ["Laravel", "Livewire", "Filament", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
         status: "shipped",
-        repo: "",
+        caseStudy: {
+            problem: "Test",
+            approach: "Test",
+            outcome: "Test"
+        }
     },
     {
         id: 4,
         title: "Hytale Web Panel",
         nda: false,
         opensource: true,
-        client: "",
-        region: "",
+        client: "Public",
         role: "Full-stack Lead",
         year: 2026,
         description: "Browser-based management panel for a self-hosted Hytale game server. Provides start/stop/restart controls via Docker, live server metrics, an in-browser terminal for logs and commands, CurseForge integration for one-click mod installs and updates, and a role-based permission system to scope feature access per user.",
@@ -76,13 +90,17 @@ export const projects: Project[] = [
         nda: false,
         opensource: false,
         client: "Inarchitec",
-        region: "",
         role: "Solo",
         year: 2026,
         description: "Marketing website for Inarchitec, a local architecture firm. A fast, fully static frontend with a clean and modern design, showcasing the company's services, capabilities, and portfolio.",
         stack: ["Astro", "TypeScript", "Cloudflare Pages"],
         status: "development",
-        repo: "",
+        liveUrl: "https://inarchitec.com",
+        caseStudy: {
+            problem: "Test",
+            approach: "Test",
+            outcome: "Test"
+        }
     },
     {
         id: 6,
@@ -90,7 +108,6 @@ export const projects: Project[] = [
         nda: false,
         opensource: true,
         client: "me",
-        region: "",
         role: "Solo",
         year: 2026,
         description: "The site you're looking at. Built to showcase my work and skills, with a dark/light theme, smooth scroll animations, and a focus on clean, purposeful design.",
