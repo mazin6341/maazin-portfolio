@@ -20,6 +20,10 @@ function Navbar() {
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">
                             skills
                     </a>
+                    <a href="#contact"
+                        className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">
+                            contact
+                    </a>
                     <a href="https://github.com/mazin6341" target="_blank" rel="noreferrer"
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm flex items-center gap-1">
                             github <FiArrowUpRight size={14} />

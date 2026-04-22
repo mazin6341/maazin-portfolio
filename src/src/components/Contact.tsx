@@ -2,13 +2,16 @@ import { FiArrowUpRight } from "react-icons/fi"
 
 function Contact() {
     return (
-        <section id="contact" className="relative overflow-hidden py-24 max-w-6xl mx-auto px-6">
+        <section id="contact" className="relative overflow-hidden py-24">
             {/* Glow */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-[800px] h-[300px] bg-accent-from/20 rounded-full blur-[120px] translate-y-[-20rem]" />
+                <div className="w-[800px] h-[300px] bg-accent-from/20 rounded-full blur-[120px] -translate-y-80" />
             </div>
 
-            <div className="relative text-center">
+            {/* Full-width horizontal rule */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-px bg-text/10" />
+
+            <div className="relative max-w-6xl mx-auto px-6 text-center">
                 <p className="text-xs text-text/60 font-mono">// LET'S TALK</p>
                 <div className="text-6xl font-bold font-mono mt-4 flex flex-col gap-2">
                     <h2>Got a <span className="gradient-text">weird idea</span>?</h2>

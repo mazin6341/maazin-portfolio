@@ -22,7 +22,7 @@ function Work() {
             {/* Projects */}
             <div className="mt-16 flex flex-col divide-y divide-text/20 border-t border-b border-text/20">
                 {projects.map((project) => (
-                    <div key={project.id} className="group hover:cursor-pointer">
+                    <div key={project.id} className="group hover:cursor-pointer" onClick={() => project.repo && window.open(project.repo, '_blank')}>
                         <div className="project-row flex justify-between py-10 pl-4">
                             {/* Left Side */}
                             <div className="flex-1 flex flex-col gap-3">
@@ -84,7 +84,7 @@ function Work() {
                                 </div>
 
                                 <div className="mt-3">
-                                    <a href="#" className="text-xs font-mono px-3 py-1.5 rounded ring-1 ring-text/20 text-text/50 group-hover:ring-text/40 group-hover:text-text/70 transition-all flex items-center gap-1 w-fit">
+                                    <a href={project.repo ?? '#'} {...(project.repo ? { target: '_blank', rel: 'noopener noreferrer' } : {})} onClick={(e) => e.stopPropagation()} className="text-xs font-mono px-3 py-1.5 rounded ring-1 ring-text/20 text-text/50 group-hover:ring-text/40 group-hover:text-text/70 transition-all flex items-center gap-1 w-fit">
                                         {project.opensource
                                             ? "see how it's built"
                                             : project.nda

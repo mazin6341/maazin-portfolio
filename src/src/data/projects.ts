@@ -9,7 +9,8 @@ export type Project = {
     year: number,
     description: string,
     stack: string[],
-    status: string
+    status: string,
+    repo: string,
 }
 
 export const projects: Project[] = [
@@ -24,7 +25,8 @@ export const projects: Project[] = [
         year: 2023,
         description: "End-to-end student lifecycle management, from application and enrolment through to graduation. Covers program and module registration, fee payments, a student portal, and a staff-facing backend with department-level, role-based permissions for managing records, processing payments, and generating reports.",
         stack: ["Laravel", "Livewire", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
-        status: "shipped"
+        status: "shipped",
+        repo: "",
     },
     {
         id: 2,
@@ -37,7 +39,8 @@ export const projects: Project[] = [
         year: 2023,
         description: "Centralised HR platform covering staff profiles, payroll processing, attendance tracking, and leave management. Integrates with an SSO provider and ZKTeco hardware via API for seamless identity and time data.",
         stack: ["Laravel", "Livewire", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
-        status: "development"
+        status: "development",
+        repo: "",
     },
     {
         id: 3,
@@ -50,7 +53,8 @@ export const projects: Project[] = [
         year: 2025,
         description: "Secure online voting platform for student election events, open to alumni and other eligible users. Voting anonymity is enforced at the database level — not just the application layer.",
         stack: ["Laravel", "Livewire", "Filament", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
-        status: "shipped"
+        status: "shipped",
+        repo: "",
     },
     {
         id: 4,
@@ -63,7 +67,8 @@ export const projects: Project[] = [
         year: 2026,
         description: "Browser-based management panel for a self-hosted Hytale game server. Provides start/stop/restart controls via Docker, live server metrics, an in-browser terminal for logs and commands, CurseForge integration for one-click mod installs and updates, and a role-based permission system to scope feature access per user.",
         stack: ["Laravel", "Livewire", "Docker", "SQLite", "TailwindCSS"],
-        status: "shipped"
+        status: "shipped",
+        repo: "https://github.com/Mazin6341/hytale-server-panel"
     },
     {
         id: 5,
@@ -76,7 +81,8 @@ export const projects: Project[] = [
         year: 2026,
         description: "Marketing website for Inarchitec, a local architecture firm. A fast, fully static frontend with a clean and modern design, showcasing the company's services, capabilities, and portfolio.",
         stack: ["Astro", "TypeScript", "Cloudflare Pages"],
-        status: "development"
+        status: "development",
+        repo: "",
     },
     {
         id: 6,
@@ -89,6 +95,7 @@ export const projects: Project[] = [
         year: 2026,
         description: "The site you're looking at. Built to showcase my work and skills, with a dark/light theme, smooth scroll animations, and a focus on clean, purposeful design.",
         stack: ["Vite", "React", "TypeScript", "TailwindCSS", "NGINX", "Docker"],
-        status: "shipped"
+        status: "shipped",
+        repo: "https://github.com/Mazin6341/maazin-portfolio",
     },
 ]
