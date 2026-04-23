@@ -1,4 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 import { projects } from '../data/projects'
 import { techMeta } from '../data/techMeta'
 import { FiArrowLeft, FiArrowRight, FiArrowUpRight, FiLock, FiCheck, FiX, FiExternalLink, FiGithub } from 'react-icons/fi'
@@ -8,6 +9,10 @@ import Footer from './Footer'
 function ProjectDetail() {
     const { id } = useParams()
     const project = projects.find(p => p.id === Number(id))
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [id])
     if (!project) {
         return <Navigate to="/" replace />
     }
@@ -34,7 +39,7 @@ function ProjectDetail() {
                     {project.nda && <span className="flex items-center gap-1 text-xs font-mono px-2 py-1 rounded ring-1 ring-accent-to bg-accent-to/10 text-accent-to w-fit"><FiLock size={10} /> UNDER NDA</span>}
                 </div>
 
-                <h1 className="text-4xl font-bold font-mono">
+                <h1 className="text-2xl md:text-4xl font-bold font-mono">
                     {project.title}
                 </h1>
                 {project.isCurrent && (
@@ -91,7 +96,7 @@ function ProjectDetail() {
                             <p className="uppercase font-mono text-sm">Under NDA — here's what I can share</p>
                         </div>
 
-                        <div className="w-full grid grid-cols-2 gap-6">
+                        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* What I can share */}
                             <div className="flex flex-col">
                                 <p className="text-sm font-mono text-green-400 flex items-center gap-1"><FiCheck size={11} /> I can share</p>
@@ -169,33 +174,33 @@ function ProjectDetail() {
 
             {/* Content Section */}
             {project.caseStudy && (
-                <div className="pt-10 pb-24 max-w-6xl mx-auto px-6 flex flex-col gap-48">
+                <div className="pt-10 pb-24 max-w-6xl mx-auto px-6 flex flex-col gap-16 md:gap-48">
                     {/* Problem */}
-                    <div className="flex gap-2">
-                        <div className="w-1/4">
+                    <div className="flex flex-col md:flex-row gap-2">
+                        <div className="md:w-1/4">
                             <p className="font-mono text-xs uppercase text-text/40">01 · PROBLEM</p>
                         </div>
-                        <div className="w-3/4">
+                        <div className="md:w-3/4">
                             <p className="text-text text-sm">{project.caseStudy.problem}</p>
                         </div>
                     </div>
 
                     {/* Approach */}
-                    <div className="flex gap-2">
-                        <div className="w-1/4">
+                    <div className="flex flex-col md:flex-row gap-2">
+                        <div className="md:w-1/4">
                             <p className="font-mono text-xs uppercase text-text/40">02 · APPROACH</p>
                         </div>
-                        <div className="w-3/4">
+                        <div className="md:w-3/4">
                             <p className="text-text text-sm">{project.caseStudy.approach}</p>
                         </div>
                     </div>
 
                     {/* Outcome */}
-                    <div className="flex gap-2">
-                        <div className="w-1/4">
+                    <div className="flex flex-col md:flex-row gap-2">
+                        <div className="md:w-1/4">
                             <p className="font-mono text-xs uppercase text-text/40">03 · OUTCOME</p>
                         </div>
-                        <div className="w-3/4">
+                        <div className="md:w-3/4">
                             <p className="text-text text-sm">{project.caseStudy.outcome}</p>
                         </div>
                     </div>
@@ -206,7 +211,7 @@ function ProjectDetail() {
             {(() => {
                 const nextProject = projects.find(p => p.id === project.id + 1)
                 return (
-                    <div className="max-w-6xl mx-auto px-6 pb-24 pt-8 border-t border-text/10 flex justify-between items-center">
+                    <div className="max-w-6xl mx-auto px-6 pb-24 pt-8 border-t border-text/10 flex flex-col md:flex-row justify-between gap-3 md:items-center">
                         <Link to="/#contact" className="flex items-center gap-2 font-mono text-sm px-4 py-2.5 rounded-lg ring-1 ring-text/20 text-text/50 hover:ring-text/50 hover:text-text/80 transition-all">
                             ask me about it <FiArrowUpRight size={13} />
                         </Link>
