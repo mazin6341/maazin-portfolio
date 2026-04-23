@@ -1,14 +1,14 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { techMeta } from '../data/techMeta'
-import { FiArrowLeft, FiArrowRight, FiLock, FiCheck, FiX } from 'react-icons/fi'
+import { FiArrowLeft, FiArrowRight, FiArrowUpRight, FiLock, FiCheck, FiX, FiExternalLink, FiGithub } from 'react-icons/fi'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
 function ProjectDetail() {
     const { id } = useParams()
     const project = projects.find(p => p.id === Number(id))
-    if( !project || !project.caseStudy ) {
+    if (!project) {
         return <Navigate to="/" replace />
     }
     
@@ -18,7 +18,7 @@ function ProjectDetail() {
 
             {/* Top Bar */}
             <div className="pt-24 pb-4 max-w-6xl mx-auto px-6 flex justify-between items-center">
-                <Link to="/#works" className="flex items-center gap-1.5 rounded-lg border border-text/40 hover:border-text/70 pl-2 pr-3 py-2 text-text/40 hover:text-text/70 transition-colors font-mono text-xs">
+                <Link to={`/#project-${project.id}`} className="flex items-center gap-1.5 rounded-lg border border-text/40 hover:border-text/70 pl-2 pr-3 py-2 text-text/40 hover:text-text/70 transition-colors font-mono text-xs">
                     <FiArrowLeft />
                     <span>back to work</span>
                 </Link>
@@ -27,7 +27,7 @@ function ProjectDetail() {
                 </span>
             </div>
 
-            <main className="pt-10 pb-24 max-w-6xl mx-auto px-6">
+            <main className="pt-10 pb-12 max-w-6xl mx-auto px-6">
                 {/* Header Section */}
                 <div className="mb-8 flex gap-6 font-mono text-xs text-text/40">
                     <span className="my-auto">0{project.id}</span>
@@ -37,6 +37,9 @@ function ProjectDetail() {
                 <h1 className="text-4xl font-bold font-mono">
                     {project.title}
                 </h1>
+                {project.isCurrent && (
+                    <p className="mt-3 font-mono text-xs text-accent-from">// you're looking at it right now</p>
+                )}
                 <p className="mt-4 text-text/40">
                     {project.description}
                 </p>
@@ -81,7 +84,7 @@ function ProjectDetail() {
 
                 {/* NDA Section */}
                 {project.nda && <div className="mt-8 bg-accent-from/10 border border-accent-to/50 border-l-0 rounded-lg overflow-hidden flex flex-row">
-                    <div className="w-1 shrink-0 bg-gradient-to-b from-accent-from to-accent-to" />
+                <div className="w-1 shrink-0 bg-gradient-to-b from-accent-from to-accent-to" />
                     <div className="px-6 py-6 flex flex-col gap-4 w-full">
                         <div className="flex gap-2">
                             <FiLock size={16} className="text-accent-to my-auto" />
@@ -121,6 +124,100 @@ function ProjectDetail() {
                     </div>
                 </div>}
             </main>
+
+            {/* Links */}
+            {(project.liveUrl || project.repo) && (
+                <div className="pb-8 max-w-6xl mx-auto px-6 flex gap-3">
+                    {project.liveUrl && (
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono text-xs px-4 py-2 rounded-lg ring-1 ring-text/20 text-text/50 hover:ring-text/50 hover:text-text/80 transition-all">
+                            <FiExternalLink size={13} />
+                            view live
+                        </a>
+                    )}
+                    {project.repo && (
+                        <a href={project.repo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono text-xs px-4 py-2 rounded-lg ring-1 ring-text/20 text-text/50 hover:ring-text/50 hover:text-text/80 transition-all">
+                            <FiGithub size={13} />
+                            view source
+                        </a>
+                    )}
+                </div>
+            )}
+
+            {/* Live Demo */}
+            {!project.nda && project.liveUrl && (
+                <div className="pt-10 pb-12 max-w-6xl mx-auto px-6">
+                    <p className="font-mono text-xs uppercase text-text/40 mb-4">live demo</p>
+                    <div className="bg-bg border border-text/10 rounded-xl overflow-hidden shadow-[#6c63ff]/20 shadow-xl">
+                        {/* Title Bar */}
+                        <div className="flex items-center gap-2 px-4 py-3 border-b border-text/10">
+                            <span className="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+                            <span className="w-3 h-3 rounded-full bg-[#febc2e]"></span>
+                            <span className="w-3 h-3 rounded-full bg-[#28c840]"></span>
+                            <span className="gradient-text font-mono text-xs ml-2">{project.liveUrl}</span>
+                        </div>
+                        <div className="h-[600px]">
+                            <iframe
+                                src={project.liveUrl}
+                                className="w-full h-full"
+                                sandbox="allow-scripts allow-same-origin allow-forms"
+                                title={`${project.title} live demo`}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Content Section */}
+            {project.caseStudy && (
+                <div className="pt-10 pb-24 max-w-6xl mx-auto px-6 flex flex-col gap-48">
+                    {/* Problem */}
+                    <div className="flex gap-2">
+                        <div className="w-1/4">
+                            <p className="font-mono text-xs uppercase text-text/40">01 · PROBLEM</p>
+                        </div>
+                        <div className="w-3/4">
+                            <p className="text-text text-sm">{project.caseStudy.problem}</p>
+                        </div>
+                    </div>
+
+                    {/* Approach */}
+                    <div className="flex gap-2">
+                        <div className="w-1/4">
+                            <p className="font-mono text-xs uppercase text-text/40">02 · APPROACH</p>
+                        </div>
+                        <div className="w-3/4">
+                            <p className="text-text text-sm">{project.caseStudy.approach}</p>
+                        </div>
+                    </div>
+
+                    {/* Outcome */}
+                    <div className="flex gap-2">
+                        <div className="w-1/4">
+                            <p className="font-mono text-xs uppercase text-text/40">03 · OUTCOME</p>
+                        </div>
+                        <div className="w-3/4">
+                            <p className="text-text text-sm">{project.caseStudy.outcome}</p>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Bottom Nav */}
+            {(() => {
+                const nextProject = projects.find(p => p.id === project.id + 1)
+                return (
+                    <div className="max-w-6xl mx-auto px-6 pb-24 pt-8 border-t border-text/10 flex justify-between items-center">
+                        <Link to="/#contact" className="flex items-center gap-2 font-mono text-sm px-4 py-2.5 rounded-lg ring-1 ring-text/20 text-text/50 hover:ring-text/50 hover:text-text/80 transition-all">
+                            ask me about it <FiArrowUpRight size={13} />
+                        </Link>
+                        {nextProject && (
+                            <Link to={`/work/${nextProject.id}`} className="flex items-center gap-2 font-mono text-sm px-5 py-2.5 rounded-lg bg-gradient-to-r from-accent-from to-accent-to text-white hover:opacity-90 transition-opacity">
+                                next: {nextProject.title} <FiArrowRight size={13} />
+                            </Link>
+                        )}
+                    </div>
+                )
+            })()}
 
             <Footer />
         </div>

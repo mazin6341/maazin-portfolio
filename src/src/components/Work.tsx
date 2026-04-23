@@ -24,7 +24,8 @@ function Work() {
             {/* Projects */}
             <div className="mt-16 flex flex-col divide-y divide-text/20 border-t border-b border-text/20">
                 {projects.map((project) => (
-                    <div key={project.id} className="group hover:cursor-pointer" onClick={() => project.caseStudy ? navigate(`/work/${project.id}`) : project.repo && window.open(project.repo, '_blank')}>
+                    <div key={project.id} id={`project-${project.id}`} className="group hover:cursor-pointer scroll-mt-28" onClick={() => navigate(`/work/${project.id}`)}>
+
                         <div className="project-row flex flex-col md:flex-row justify-between py-10 pl-4 gap-6 md:gap-0">
                             {/* Left Side */}
                             <div className="flex-1 flex flex-col gap-3">
@@ -86,15 +87,9 @@ function Work() {
                                 </div>
 
                                 <div className="mt-3">
-                                    {project.caseStudy ? (
-                                        <Link to={`/work/${project.id}`} onClick={(e) => e.stopPropagation()} className="text-xs font-mono px-3 py-1.5 rounded ring-1 ring-text/20 text-text/50 group-hover:ring-text/40 group-hover:text-text/70 transition-all flex items-center gap-1 w-fit">
-                                            {project.nda ? "see what I can share" : "read the writeup"} <span>›</span>
-                                        </Link>
-                                    ) : project.repo ? (
-                                        <a href={project.repo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-xs font-mono px-3 py-1.5 rounded ring-1 ring-text/20 text-text/50 group-hover:ring-text/40 group-hover:text-text/70 transition-all flex items-center gap-1 w-fit">
-                                            see how it's built <span>›</span>
-                                        </a>
-                                    ) : null}
+                                    <Link to={`/work/${project.id}`} onClick={(e) => e.stopPropagation()} className="text-xs font-mono px-3 py-1.5 rounded ring-1 ring-text/20 text-text/50 group-hover:ring-text/40 group-hover:text-text/70 transition-all flex items-center gap-1 w-fit">
+                                        {project.nda ? "see what I can share" : project.caseStudy ? "read the writeup" : "see how it's built"} <span>›</span>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
