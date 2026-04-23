@@ -29,13 +29,13 @@ export const projects: Project[] = [
         client: "Villa College",
         role: "Full-stack Developer",
         year: 2023,
-        description: "End-to-end student lifecycle management, from application and enrolment through to graduation. Covers program and module registration, fee payments, a student portal, and a staff-facing backend with department-level, role-based permissions for managing records, processing payments, and generating reports.",
+        description: "End-to-end student lifecycle management replacing a legacy Zend Framework system across a student body in the thousands. Covers application, enrolment, program and module registration, fee payments with invoice and receipt generation, a student portal, and a staff-facing backend with dynamic department-level role-based permissions across 10+ departments.",
         stack: ["Laravel", "Livewire", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
         status: "shipped",
         caseStudy: {
-            problem: "Villa College's student lifecycle was managed across disconnected systems and manual processes — application intake, enrolment, fee tracking, and graduation records each lived in silos, causing delays and data inconsistency across departments.",
-            approach: "Built a unified platform where every stage of the student lifecycle flows through one system. Department-level role-based permissions ensure staff only see and act on what's relevant to their function. Fee payments, module registration, and report generation are all handled within the same authenticated interface.",
-            outcome: "Eliminated manual handoffs between departments. Staff now process enrolments, payments, and reports from a single interface, reducing processing time and the risk of data inconsistency across the student record."
+            problem: "Villa College's student data ran on an aging Zend Framework PHP system with poorly structured database tables, no indexing strategy, and slow queries across a student body in the thousands. Missing features were the norm, and making changes was slow and risky — fixes frequently broke unrelated parts of the system.",
+            approach: "Rebuilt the entire platform from scratch as a team. Report generation across multiple areas of the system — enrolment, fees, modules — along with invoice and receipt generation and a payment gateway integration. The permissions model is department-scoped and dynamic, so new departments can be added without touching code.",
+            outcome: "The system is live, actively used across 10+ departments, and in continuous development. Enrolments, fee processing, and reporting that previously required manual coordination now run through a single interface, and the codebase is maintained and extended on an ongoing basis."
         }
     },
     {
@@ -46,13 +46,13 @@ export const projects: Project[] = [
         client: "Villa College",
         role: "Full-stack Developer",
         year: 2023,
-        description: "Centralised HR platform covering staff profiles, payroll processing, attendance tracking, and leave management. Integrates with an SSO provider and ZKTeco hardware via API for seamless identity and time data.",
-        stack: ["Laravel", "Livewire", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
+        description: "Centralised HR platform for ~200 staff covering employee profiles, attendance tracking via ZKTeco biometric hardware, and leave management. Integrates with Keycloak for SSO. Payroll calculation, payslip generation, and bank file export are in active development.",
+        stack: ["Laravel", "Livewire", "Keycloak", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
         status: "development",
         caseStudy: {
-            problem: "HR operations at Villa College were fragmented — payroll, attendance, leave, and staff records were handled separately with no single source of truth. Attendance relied on manual sign-ins, making payroll reconciliation slow and prone to error.",
-            approach: "Built a centralised HR platform integrating with an SSO provider for unified identity management and ZKTeco biometric hardware via API for automated time data. Payroll processing draws directly from attendance records, removing the manual reconciliation step entirely.",
-            outcome: "Attendance data now flows automatically from hardware into payroll calculations. HR staff manage the full employee lifecycle from one interface, with SSO eliminating separate credential management across systems."
+            problem: "HR operations for ~200 staff were split across disconnected systems with no single source of truth. Attendance was tracked manually, making it slow to produce accurate records and creating a painful reconciliation path toward payroll.",
+            approach: "Built Keycloak SSO integration for unified identity management. Wrote the ZKTeco biometric hardware integration from scratch — no existing library, working directly against the device API to pull time and attendance data into the system. Staff profiles, attendance records, and leave management are centralised in one interface.",
+            outcome: "Attendance data flows automatically from ZKTeco hardware into the system, replacing manual tracking. Attendance reporting is live. Payroll calculation, payslip generation, and bank file export are currently in development."
         }
     },
     {
@@ -61,15 +61,15 @@ export const projects: Project[] = [
         nda: true,
         opensource: false,
         client: "Villa College",
-        role: "Full-stack Developer",
+        role: "Solo Developer",
         year: 2025,
-        description: "Secure online voting platform for student election events, open to alumni and other eligible users. Voting anonymity is enforced at the database level — not just the application layer.",
+        description: "Secure online voting platform for student elections, replacing ad-hoc voting in Moodle. Eligible voters are imported directly from the Student Management System. Anonymity is enforced at the database level — votes are stored against a UUID with no link back to the voter's identity.",
         stack: ["Laravel", "Livewire", "Filament", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
         status: "shipped",
         caseStudy: {
-            problem: "Student elections at Villa College had no secure digital voting mechanism. Running elections through generic tools left anonymity and eligibility enforcement at the application layer — easy to bypass and difficult to audit.",
-            approach: "Built a purpose-built voting platform where anonymity is enforced at the database level. Votes are stored with no link back to the voter's identity, making it structurally impossible to trace a vote after it's cast. Eligibility checks run before ballot access is granted.",
-            outcome: "Elections ran fully online with verifiable anonymity guarantees. The database-level design means no application bug or admin action can de-anonymise a vote — it's a structural guarantee, not a policy one."
+            problem: "Student elections at Villa College ran through Moodle, which was never designed as a voting platform. It offered no meaningful anonymity guarantees and eligibility enforcement was manual. There was no audit-safe way to run a proper election.",
+            approach: "Built a purpose-built voting platform where the alumni model holds a vote_uuid. Votes are stored against that UUID only — there is no foreign key back to the voter's identity. Once a vote is cast, there is no data path to trace it back. Eligible voters are imported directly from the Student Management System, removing manual list management entirely.",
+            outcome: "The system was fully built, demo'd to stakeholders, and tested internally. It was never deployed for a live election — the project was pitched to marketing but not taken to production. The technical anonymity guarantee is structural, not policy-based: no application bug or admin action can de-anonymise a vote."
         }
     },
     {
@@ -80,14 +80,14 @@ export const projects: Project[] = [
         client: "Public",
         role: "Full-stack Lead",
         year: 2026,
-        description: "Browser-based management panel for a self-hosted Hytale game server. Provides start/stop/restart controls via Docker, live server metrics, an in-browser terminal for logs and commands, CurseForge integration for one-click mod installs and updates, and a role-based permission system to scope feature access per user.",
+        description: "Browser-based management panel for a self-hosted Hytale Early Access game server. Provides start/stop/restart controls via Docker, live server metrics, an in-browser terminal for logs and commands, CurseForge integration for one-click mod installs and updates, and a role-based permission system to scope feature access per user.",
         stack: ["Laravel", "Livewire", "Docker", "SQLite", "TailwindCSS"],
         status: "shipped",
         repo: "https://github.com/Mazin6341/hytale-server-panel",
         caseStudy: {
-            problem: "Managing a self-hosted Hytale game server meant juggling raw Docker commands, manual log tailing, and downloading mods by hand — no single interface to do it all, and no safe way to delegate control to other users without giving them full server access.",
-            approach: "Built a browser-based panel that wraps Docker's API for server lifecycle controls, streams live metrics and logs to an in-browser terminal, and integrates with CurseForge for one-click mod installs and updates. Role-based permissions let each user be scoped to only what they need.",
-            outcome: "Server management is now fully browser-based — start, stop, install mods, and tail logs without touching a terminal. Permission scoping means trusted users can be handed access without compromising control of the underlying host."
+            problem: "Managing a self-hosted Hytale server meant juggling raw Docker commands, manual log tailing, and downloading mods by hand — no single interface to do it all, and no safe way to delegate control to other users without giving them full server access.",
+            approach: "Led development as the sole developer, with three others contributing testing and feedback. Built a browser-based panel wrapping Docker's API for server lifecycle controls, streaming live metrics and logs to an in-browser terminal. CurseForge integration was implemented end-to-end, enabling one-click mod installs and updates. Role-based permissions scope each user to only what they need.",
+            outcome: "The panel was fully built and functional — server management, mod installs, and log tailing all browser-based. The project was never officially launched or marketed, and remains a public open-source repo."
         }
     },
     {
@@ -98,14 +98,14 @@ export const projects: Project[] = [
         client: "Inarchitec",
         role: "Solo",
         year: 2026,
-        description: "Marketing website for Inarchitec, a local architecture firm. A fast, fully static frontend with a clean and modern design, showcasing the company's services, capabilities, and portfolio.",
+        description: "Marketing website for Inarchitec, a local firm offering residential architecture, interior design, and construction services including roofing, plumbing, and electrical. Fully static, self-designed from scratch, with a portfolio section and clear service presentation.",
         stack: ["Astro", "TypeScript", "Cloudflare Pages"],
-        status: "development",
+        status: "shipped",
         liveUrl: "https://inarchitec.com",
         caseStudy: {
-            problem: "Inarchitec, a local architecture firm, had no web presence — no way to direct potential clients anywhere, or present their services and portfolio professionally online.",
-            approach: "Built a fully static marketing site with Astro, prioritising load speed and clean design over CMS overhead. Content is authored at build time. Deployed to Cloudflare Pages for global edge delivery with zero infrastructure to manage.",
-            outcome: "The firm now has a live, fast-loading web presence at inarchitec.com, giving prospective clients a clear picture of their services, capabilities, and past work."
+            problem: "Inarchitec had no web presence — no way to direct potential clients anywhere or present their services and completed work professionally online.",
+            approach: "Took full ownership of design and development. Designed the site from scratch with a clean, professional aesthetic suited to an architecture and interiors audience. Built with Astro for static output and deployed to Cloudflare Pages for global edge delivery with zero infrastructure overhead. Defined the direction for the client, including layout, content structure, and the portfolio section.",
+            outcome: "The site is live at inarchitec.com. Inarchitec now has a professional web presence presenting their services across residential architecture, interior design, and construction. Portfolio content is being finalised by the client."
         }
     },
     {
