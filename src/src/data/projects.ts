@@ -30,7 +30,7 @@ export const projects: Project[] = [
         role: "Full-stack Developer",
         year: 2023,
         description: "End-to-end student lifecycle management replacing a legacy Zend Framework system across a student body in the thousands. Covers application, enrolment, program and module registration, fee payments with invoice and receipt generation, a student portal, and a staff-facing backend with dynamic department-level role-based permissions across 10+ departments.",
-        stack: ["Laravel", "Livewire", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
+        stack: ["Laravel", "Livewire", "Keycloak", "Docker", "NGINX", "PostgreSQL", "TailwindCSS"],
         status: "shipped",
         caseStudy: {
             problem: "Villa College's student data ran on an aging Zend Framework PHP system with poorly structured database tables, no indexing strategy, and slow queries across a student body in the thousands. Missing features were the norm, and making changes was slow and risky — fixes frequently broke unrelated parts of the system.",
