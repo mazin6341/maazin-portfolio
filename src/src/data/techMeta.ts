@@ -20,6 +20,7 @@ import {
     SiGithubactions,
     SiKubernetes,
     SiInertia,
+    SiFramer,
 } from 'react-icons/si'
 import type { IconType } from 'react-icons'
 
@@ -51,4 +52,5 @@ export const techMeta: Record<string, TechMeta> = {
     'GitHub Actions':   { icon: SiGithubactions, color: '#2088FF' },
     Kubernetes:         { icon: SiKubernetes,    color: '#326CE5' },
     'Node.js':          { icon: SiNodedotjs,     color: '#339933' },
+    'Framer Motion':    { icon: SiFramer,        color: '#0055FF' },
 }

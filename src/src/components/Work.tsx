@@ -2,29 +2,33 @@ import { projects } from '../data/projects'
 import { techMeta } from '../data/techMeta'
 import { FiChevronRight } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
+import FadeIn from './FadeIn'
 
 function Work() {
     const navigate = useNavigate()
     return (
         <section id="works" className="py-24 max-w-6xl mx-auto px-6">
             {/* Header */}
-            <div className="flex flex-col md:flex-row gap-4">
-                {/* Left Side */}
-                <div className="flex-1">
-                    <p className="text-text/60 font-mono text-sm flex items-center gap-2"><span className="gradient-text">————</span> // SELECTED WORK</p>
-                    <h2 className="font-mono font-bold text-2xl md:text-4xl mt-2 md:whitespace-nowrap">Things I've built <span className="gradient-text">& shipped</span>.</h2>
-                </div>
+            <FadeIn>
+                <div className="flex flex-col md:flex-row gap-4">
+                    {/* Left Side */}
+                    <div className="flex-1">
+                        <p className="text-text/60 font-mono text-sm flex items-center gap-2"><span className="gradient-text">————</span> // SELECTED WORK</p>
+                        <h2 className="font-mono font-bold text-2xl md:text-4xl mt-2 md:whitespace-nowrap">Things I've built <span className="gradient-text">& shipped</span>.</h2>
+                    </div>
 
-                {/* Right Side */}
-                <div className="max-w-xs flex md:items-end">
-                    <p className="text-text/60 text-xs leading-relaxed md:text-right font-mono">Some of this is under NDA, so here's the shape of it — problem, approach, outcome. Prose over screenshots.</p>
+                    {/* Right Side */}
+                    <div className="max-w-xs flex md:items-end">
+                        <p className="text-text/60 text-xs leading-relaxed md:text-right font-mono">Some of this is under NDA, so here's the shape of it — problem, approach, outcome. Prose over screenshots.</p>
+                    </div>
                 </div>
-            </div>
+            </FadeIn>
 
             {/* Projects */}
             <div className="mt-16 flex flex-col divide-y divide-text/20 border-t border-b border-text/20">
-                {projects.map((project) => (
-                    <div key={project.id} id={`project-${project.id}`} className="group hover:cursor-pointer scroll-mt-28" onClick={() => navigate(`/work/${project.id}`)}>
+                {projects.map((project, index) => (
+                    <FadeIn key={project.id} delay={index * 0.08}>
+                    <div id={`project-${project.id}`} className="group hover:cursor-pointer scroll-mt-28" onClick={() => navigate(`/work/${project.id}`)}>
 
                         <div className="project-row flex flex-col md:flex-row justify-between py-10 pl-4 gap-6 md:gap-0">
                             {/* Left Side */}
@@ -94,6 +98,7 @@ function Work() {
                             </div>
                         </div>
                     </div>
+                    </FadeIn>
                 ))}
             </div>
         </section>

@@ -1,23 +1,27 @@
 import { skills, groups } from '../data/skills'
+import FadeIn from './FadeIn'
 
 function Skills() {
     return (
         <section id="skills" className="py-24 max-w-6xl mx-auto px-6">
             {/* Header */}
-            <div className="flex flex-col md:flex-row gap-4">
-                {/* Left Side */}
-                <div className="flex-1">
-                    <p className="text-text/60 font-mono text-sm flex items-center gap-2"><span className="gradient-text">————</span> // STACK</p>
-                    <h2 className="font-mono font-bold text-2xl md:text-4xl mt-2 md:whitespace-nowrap">What I <span className="gradient-text">reach for</span>.</h2>
-                </div>
+            <FadeIn>
+                <div className="flex flex-col md:flex-row gap-4">
+                    {/* Left Side */}
+                    <div className="flex-1">
+                        <p className="text-text/60 font-mono text-sm flex items-center gap-2"><span className="gradient-text">————</span> // STACK</p>
+                        <h2 className="font-mono font-bold text-2xl md:text-4xl mt-2 md:whitespace-nowrap">What I <span className="gradient-text">reach for</span>.</h2>
+                    </div>
 
-                {/* Right Side */}
-                <div className="max-w-xs flex md:items-end">
-                    <p className="text-text/60 text-xs leading-relaxed md:text-right font-mono">Grouped by area, not ranked. A tool is a tool — pick the one that fits the job.</p>
+                    {/* Right Side */}
+                    <div className="max-w-xs flex md:items-end">
+                        <p className="text-text/60 text-xs leading-relaxed md:text-right font-mono">Grouped by area, not ranked. A tool is a tool — pick the one that fits the job.</p>
+                    </div>
                 </div>
-            </div>
+            </FadeIn>
 
             {/* Skills Section */}
+            <FadeIn delay={0.15}>
             <div className="mt-8 border border-accent-from/10 bg-accent-from/5 shadow-xl shadow-[#6c63ff]/20 rounded-xl px-4 py-6">
                 <div className="flex flex-col gap-2">
                     {/* Tree Command */}
@@ -58,6 +62,7 @@ function Skills() {
                     </div>
                 </div>
             </div>
+            </FadeIn>
         </section>
     )
 }

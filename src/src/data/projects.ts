@@ -117,7 +117,7 @@ export const projects: Project[] = [
         role: "Solo",
         year: 2026,
         description: "The site you're looking at. Built to showcase my work and skills, with a dark/light theme, smooth scroll animations, and a focus on clean, purposeful design.",
-        stack: ["Vite", "React", "TypeScript", "TailwindCSS", "NGINX", "Docker"],
+        stack: ["Vite", "React", "TypeScript", "TailwindCSS", "Framer Motion", "NGINX", "Docker"],
         status: "shipped",
         repo: "https://github.com/Mazin6341/maazin-portfolio",
         isCurrent: true,

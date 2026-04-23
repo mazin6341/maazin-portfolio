@@ -1,5 +1,9 @@
+type TextOut = { type: "text"; value: string }
+type KvOut = { type: "kv"; key: string; value: string }
+type LineOutput = TextOut | KvOut
+
 function TerminalCard() {
-    const lines = [
+    const lines: { command: string; output: LineOutput[] }[] = [
         { command: "whoami", output: [{ type: "text", value: "mohamed maazin faisal" }] },
         { command: "cat .stack", output: [
             { type: "kv", key: "primary", value: "laravel · livewire · postgres" },

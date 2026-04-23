@@ -23,7 +23,7 @@ export function useTypingEffect(phrases: string[]): string {
         }, delay)
 
         return () => clearTimeout(timeout)
-    }, [phraseIndex, charIndex, isDeleting])
+    }, [phraseIndex, charIndex, isDeleting, phrases])
 
     return phrases[phraseIndex].substring(0, charIndex)
 }

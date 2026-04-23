@@ -19,7 +19,7 @@ function Navbar() {
                     <a href="/#works" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">work</a>
                     <a href="/#skills" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">skills</a>
                     <a href="/#contact" className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">contact</a>
-                    <a href="https://github.com/mazin6341" target="_blank" rel="noreferrer"
+                    <a href="https://github.com/Mazin6341" target="_blank" rel="noreferrer"
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm flex items-center gap-1">
                         github <FiArrowUpRight size={14} />
                     </a>
@@ -51,7 +51,7 @@ function Navbar() {
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">skills</a>
                     <a href="/#contact" onClick={() => setMenuOpen(false)}
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm">contact</a>
-                    <a href="https://github.com/mazin6341" target="_blank" rel="noreferrer"
+                    <a href="https://github.com/Mazin6341" target="_blank" rel="noreferrer"
                         className="font-mono text-text/60 hover:text-accent-from transition-colors text-sm flex items-center gap-1">
                         github <FiArrowUpRight size={14} />
                     </a>
