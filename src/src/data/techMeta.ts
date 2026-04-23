@@ -21,6 +21,7 @@ import {
     SiKubernetes,
     SiInertia,
     SiFramer,
+    SiKeycloak,
 } from 'react-icons/si'
 import type { IconType } from 'react-icons'
 
@@ -36,6 +37,7 @@ export const techMeta: Record<string, TechMeta> = {
     PHP:                { icon: SiPhp,           color: '#777BB4' },
     Alpine:             { icon: SiAlpinedotjs,   color: '#8BC0D0' },
     Inertia:            { icon: SiInertia,       color: '#9553e9' },
+    Keycloak:           { icon: SiKeycloak,      color: '#4D9FEA' },
     Docker:             { icon: SiDocker,        color: '#2496ED' },
     NGINX:              { icon: SiNginx,         color: '#009639' },
     PostgreSQL:         { icon: SiPostgresql,    color: '#4169E1' },
