@@ -27,7 +27,7 @@ function ProjectDetail() {
                     <FiArrowLeft />
                     <span>back to work</span>
                 </Link>
-                <span className="font-mono text-xs text-text/20">
+                <span className="hidden md:block font-mono text-xs text-text/20">
                     work / <span className="gradient-text">{project.title.toLowerCase().replace(/\s+/g, '-')}</span>
                 </span>
             </div>
