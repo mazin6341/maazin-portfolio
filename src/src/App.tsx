@@ -6,7 +6,7 @@ import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ProjectDetail from './components/ProjectDetail'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 
 function ScrollToHash() {
@@ -39,6 +39,8 @@ function App() {
       <Route path="/work/:id" element={
         <ProjectDetail />
       } />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }
