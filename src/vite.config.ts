@@ -1,9 +1,9 @@
-import { defineConfig } from 'vite'
+import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { projects } from './src/data/projects'
 
-function sitemapPlugin() {
+function sitemapPlugin(): Plugin {
   const base = 'https://maazin.velotical.com'
   const urls = [
     { loc: `${base}/`, priority: '1.0' },
