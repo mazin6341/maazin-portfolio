@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { projects } from '../data/projects'
 import { techMeta } from '../data/techMeta'
+import { Helmet } from 'react-helmet-async'
 import { FiArrowLeft, FiArrowRight, FiArrowUpRight, FiLock, FiCheck, FiX, FiExternalLink, FiGithub } from 'react-icons/fi'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -13,6 +14,10 @@ function ProjectDetail() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
+        if (project) {
+            document.title = `${project.title} — Maazin`
+        }
+        return () => { document.title = 'Maazin — Full-stack Developer' }
     }, [id])
     if (!project) {
         return <Navigate to="/" replace />
@@ -20,6 +25,15 @@ function ProjectDetail() {
 
     return (
         <div className="min-h-screen">
+            <Helmet>
+                <meta name="description" content={project.description.slice(0, 155) + '…'} />
+                <meta property="og:title" content={`${project.title} — Maazin`} />
+                <meta property="og:description" content={project.description.slice(0, 155) + '…'} />
+                <meta property="og:url" content={`https://maazin.velotical.com/work/${project.id}`} />
+                <meta property="og:type" content="website" />
+                <link rel="canonical" href={`https://maazin.velotical.com/work/${project.id}`} />
+            </Helmet>
+
             <Navbar />
 
             {/* Top Bar */}

@@ -41,7 +41,7 @@ yarn-error.log*
 next-env.d.ts
 src/next-env.d.ts
 
-# AI / Claude Code config (managed in ~/.claude/project-configs/)
 CLAUDE.md
 AGENTS.md
 SPEC.md
+.claude
